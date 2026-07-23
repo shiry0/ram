@@ -2,6 +2,11 @@ import type { NarrationTrack, StoryAsset, StoryScene, StorySceneId } from "../ty
 
 export const STORY_TITLE = "Ram";
 export const STORY_DURATION_SECONDS = 44.437;
+const ASSET_BASE_URL = import.meta.env.BASE_URL;
+
+function withBase(path: string) {
+  return `${ASSET_BASE_URL}${path.replace(/^\/+/, "")}`;
+}
 
 export const STORY_SCENES = [
   {
@@ -14,7 +19,7 @@ export const STORY_SCENES = [
       { text: "In the heart of Kathmandu lived Ram.", revealAt: 0.12 },
     ],
     assets: [
-      { path: "/assets/scene-01-kathmandu-dawn.webp", role: "contemporary Kathmandu valley at dawn", kind: "image" },
+      { path: withBase("assets/scene-01-kathmandu-dawn.webp"), role: "contemporary Kathmandu valley at dawn", kind: "image" },
     ],
     visualDescription: "Layered Kathmandu rooftops, valley hills, and warm windows converge on Ram in the center of the city.",
   },
@@ -31,7 +36,7 @@ export const STORY_SCENES = [
       { text: "or another student challenge.", revealAt: 0.68 },
     ],
     assets: [
-      { path: "/assets/scene-02-college-victories.webp", role: "Ram succeeding across several college competitions", kind: "image" },
+      { path: withBase("assets/scene-02-college-victories.webp"), role: "Ram succeeding across several college competitions", kind: "image" },
     ],
     visualDescription: "A college courtyard transforms through a hackathon desk, debate microphones, and a student challenge finish line as Ram wins each event.",
   },
@@ -46,7 +51,7 @@ export const STORY_SCENES = [
       { text: "and decided that he, too, wanted to compete beyond the college level.", revealAt: 0.52 },
     ],
     assets: [
-      { path: "/assets/scene-03-national-hackathon.webp", role: "a national hackathon stage beyond the college boundary", kind: "image" },
+      { path: withBase("assets/scene-03-national-hackathon.webp"), role: "a national hackathon stage beyond the college boundary", kind: "image" },
     ],
     visualDescription: "Ram watches his friend on a larger national hackathon stage while a new route opens beyond the college boundary.",
   },
@@ -61,7 +66,7 @@ export const STORY_SCENES = [
       { text: "he found them only after the registration deadline had already passed.", revealAt: 0.46 },
     ],
     assets: [
-      { path: "/assets/scene-04-deadline-search.webm", role: "competition searches repeatedly overtaken by registration deadlines", kind: "video" },
+      { path: withBase("assets/scene-04-deadline-search.webm"), role: "competition searches repeatedly overtaken by registration deadlines", kind: "video" },
     ],
     visualDescription: "Competition results move toward Ram, but red registration-closed shutters reach every result before his cursor does.",
   },
@@ -76,7 +81,7 @@ export const STORY_SCENES = [
       { text: "He lacked timely access to the right opportunities.", revealAt: 0.52, emphasis: "quiet" },
     ],
     assets: [
-      { path: "/assets/scene-05-opportunity-gap.webp", role: "Ram separated from the right opportunities by a timing gap", kind: "image" },
+      { path: withBase("assets/scene-05-opportunity-gap.webp"), role: "Ram separated from the right opportunities by a timing gap", kind: "image" },
     ],
     visualDescription: "Talent, confidence, and interest connect to Ram, while the right opportunity remains across a clock-shaped break in the path.",
   },
@@ -90,16 +95,16 @@ export const STORY_SCENES = [
       { text: "Poor Ram.", revealAt: 0.2, emphasis: "impact" },
     ],
     assets: [
-      { path: "/assets/scene-06-poor-ram.webp", role: "Ram alone as expired opportunities pass through Kathmandu at night", kind: "image" },
+      { path: withBase("assets/scene-06-poor-ram.webp"), role: "Ram alone as expired opportunities pass through Kathmandu at night", kind: "image" },
     ],
     visualDescription: "Kathmandu keeps moving at night while Ram sits still beneath opportunities that arrived too late.",
   },
 ] as const satisfies readonly StoryScene[];
 
 export const AUDIO_ASSETS: readonly StoryAsset[] = [
-  { path: "/assets/audio/ram-narration.m4a", role: "44-second narration extracted from the supplied recording", kind: "audio" },
-  { path: "/assets/audio/kathmandu-ambience.mp3", role: "optional Kathmandu ambience", kind: "audio" },
-  { path: "/assets/audio/deadline-chime.mp3", role: "optional deadline notification", kind: "audio" },
+  { path: withBase("assets/audio/ram-narration.m4a"), role: "44-second narration extracted from the supplied recording", kind: "audio" },
+  { path: withBase("assets/audio/kathmandu-ambience.mp3"), role: "optional Kathmandu ambience", kind: "audio" },
+  { path: withBase("assets/audio/deadline-chime.mp3"), role: "optional deadline notification", kind: "audio" },
 ];
 
 export const NARRATION_TRACK = {
